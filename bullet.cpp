@@ -38,21 +38,34 @@
 #include "menu.hpp"
 #include "game.hpp"
 
-int main() {
-	srand(time(NULL));
-	GameEngine game;
-	SDL_Event e;
-	Uint32 curtime;
-	while(game.getState()!=::Quit) {
-		curtime=SDL_GetTicks();
-		while(SDL_PollEvent(&e)) {
-			game.HandleEvent(e);
-		}
-		game.Update();
-		game.Draw();
-		while(SDL_GetTicks()-curtime<16) {
-			SDL_Delay(1);
-		}
-	}
-	return 0;
+Bullet::Bullet(int _x, int _y, double rad) {
+  Pos.w=gBullet.getWidth();
+  Pos.h=gBullet.getHeight();
+  Pos.x=_x;
+  Pos.y=_y;
+  Vel.x=15*cos(rad);
+  Vel.y=15*sin(rad);
+  state=Travelling;
+}
+
+void Bullet::Update() {
+  if(Pos.x>0 && Pos.x<SCREEN_WIDTH-Pos.w && Pos.y>0 && Pos.y<SCREEN_HEIGHT-Pos.h) {
+    Pos.x+=Vel.x;
+    Pos.y-=Vel.y;
+  }
+  else {
+    state=Struck;
+  }
+}
+
+BulletState Bullet::getState() {
+  return state;
+}
+
+SDL_Point Bullet::getPos() {
+  return {Pos.x, Pos.y};
+}
+
+SDL_Rect* Bullet::getBoundingBox() {
+  return &Pos;
 }
