@@ -9,6 +9,6 @@ Zombies v/s Soldiers is a 2D top down endless zombie shooter game.
 
 **Building**
 
-* with g++ flag '-std=c++11 -framework SDL2 -framework SDL2_image -framework SDL2_ttf -framework -SDL2_mixer' on OS X.
-* with g++ flag '-std=c++11 -lSDL2 -lSDL2_image -lSDL2_ttf -lSDL2_mixer' on *nix.
-* on windows compile with correct flags to successfully link.
+* Compile with make.
+* Run with make run.
+* Cleanup with make clean.
