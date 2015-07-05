@@ -6,7 +6,7 @@ LFLAGS =
 LIBS = -lSDL2 -lSDL2_ttf -lSDL2_image -lSDL2_mixer
 SRCS = main.cpp SDL_Class.cpp soldier.cpp zombie.cpp bullet.cpp menu.cpp game.cpp scores.cpp zombies_vs_soldier.cpp
 OBJS = $(SRCS:.cpp=.o)
-MAIN = snake_sdl2
+MAIN = zombies_vs_soldier
 
 .PHONY : depend clean
 
