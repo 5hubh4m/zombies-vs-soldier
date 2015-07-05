@@ -12,3 +12,9 @@ Zombies v/s Soldiers is a 2D top down endless zombie shooter game.
 * Compile with make.
 * Run with make run.
 * Cleanup with make clean.
+
+**Authors**
+
+Shubham Chaudhary
+
+Cheers!
